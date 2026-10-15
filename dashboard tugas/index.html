@@ -1,0 +1,122 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard | ITERA</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div>
+                <p class="eyebrow">STUDENT PRODUCTIVITY</p>
+                <h1>My Dashboard</h1>
+                <p>Kelola tugas kuliahmu dengan lebih mudah.</p>
+            </div>
+            <div class="date-box">
+                <span id="current-date"></span>
+                <strong>Mahasiswa ITERA</strong>
+            </div>
+        </header>
+
+        <section class="weather-card">
+            <div>
+                <p class="eyebrow">CUACA KAMPUS</p>
+                <h2 id="weather-temp">Memuat cuaca...</h2>
+                <p id="weather-desc">Bandar Lampung, Lampung</p>
+            </div>
+            <div class="weather-icon">☀️</div>
+            <button id="refresh-weather" class="weather-button">
+                Perbarui
+            </button>
+        </section>
+
+        <section class="stats">
+            <div class="stat-card">
+                <span>Total Tugas</span>
+                <h2 id="total-tasks">0</h2>
+            </div>
+            <div class="stat-card">
+                <span>Belum Selesai</span>
+                <h2 id="pending-tasks">0</h2>
+            </div>
+            <div class="stat-card">
+                <span>Selesai</span>
+                <h2 id="completed-tasks">0</h2>
+            </div>
+        </section>
+
+        <main class="main-content">
+            <section class="panel form-panel">
+                <h2 id="form-title">Tambah Tugas</h2>
+                <p class="muted">Catat tugas dan deadline kuliahmu.</p>
+
+                <form id="task-form">
+                    <input type="hidden" id="task-id">
+
+                    <label for="task-title">Nama Tugas</label>
+                    <input
+                        type="text"
+                        id="task-title"
+                        placeholder="Contoh: Laporan praktikum"
+                        required
+                    >
+
+                    <label for="task-course">Mata Kuliah</label>
+                    <input
+                        type="text"
+                        id="task-course"
+                        placeholder="Contoh: Basis Data"
+                        required
+                    >
+
+                    <label for="task-deadline">Deadline</label>
+                    <input type="date" id="task-deadline" required>
+
+                    <label for="task-priority">Prioritas</label>
+                    <select id="task-priority">
+                        <option value="Rendah">Rendah</option>
+                        <option value="Sedang" selected>Sedang</option>
+                        <option value="Tinggi">Tinggi</option>
+                    </select>
+
+                    <div class="form-actions">
+                        <button type="submit" id="submit-button">
+                            Simpan Tugas
+                        </button>
+                        <button type="button" id="cancel-edit" class="secondary"
+                            hidden>
+                            Batal
+                        </button>
+                    </div>
+                </form>
+            </section>
+
+            <section class="panel task-panel">
+                <div class="task-heading">
+                    <div>
+                        <h2>Daftar Tugas</h2>
+                        <p class="muted">Pantau progres tugas kuliahmu.</p>
+                    </div>
+                    <select id="task-filter" aria-label="Filter tugas">
+                        <option value="semua">Semua</option>
+                        <option value="belum">Belum selesai</option>
+                        <option value="selesai">Selesai</option>
+                    </select>
+                </div>
+
+                <div id="task-list" class="task-list"></div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Personal Dashboard Mahasiswa | Praktikum JavaScript ES6+</p>
+            <p>Data tugas disimpan pada browser melalui localStorage.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
